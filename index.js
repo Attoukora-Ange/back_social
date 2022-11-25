@@ -16,7 +16,7 @@ const server = http.createServer(app);
 
 const option = {
   
-  origin: process.env.CLIENT,
+  origin: true,
   methods: ["GET", "PUT", "PATCH" , "POST", "DELETE"],
   allowedHeaders: ["Content-Type", "access_token"],
   credentials: true,
