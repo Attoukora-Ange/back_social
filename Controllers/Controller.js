@@ -408,7 +408,7 @@ module.exports.POST_CONNEXION = async (req, res) => {
       expires: new Date(Date.now() + 1 * 365 * 24 * 60 * 60 * 1000), //annee jour heure min sec misecc
       path: "/",
       httpOnly: true, // backend only
-      sameSite: "strict", // set to none for cross-request
+      sameSite: "none", // set to none for cross-request
     });
 
     // const UTILISATEU_CONNTECT = await UTILISATEURS.findById(ID_CONNTECTER);
