@@ -16,7 +16,7 @@ const server = http.createServer(app);
 
 const option = {
   
-  origin: "https://front-social-beta.vercel.app",
+  origin: process.env.CLIENT,
   methods: ["GET", "PUT", "PATCH" , "POST", "DELETE"],
   allowedHeaders: ["Content-Type", "access_token"],
   credentials: true,
