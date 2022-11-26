@@ -409,7 +409,6 @@ module.exports.POST_CONNEXION = async (req, res) => {
       path: "/",
       httpOnly: true, // backend only
       sameSite: "none", // set to none for cross-request
-      secure:true
     });
 
     // const UTILISATEU_CONNTECT = await UTILISATEURS.findById(ID_CONNTECTER);
