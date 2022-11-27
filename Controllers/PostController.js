@@ -20,7 +20,8 @@ module.exports.GET_LISTE_POSTER = async (req, res) => {
 };
 //post image et le texte du post
 module.exports.POST_POSTER = async (req, res) => {
-  console.log(req)
+  console.log('body element ' + req.body)
+  console.log('file element ' + req.file)
   const ID_CONNTECTER = req.user?.payload;
   if(!ID_CONNTECTER) 
   return console.log('ID_CONNECT :' + ID_CONNTECTER);
