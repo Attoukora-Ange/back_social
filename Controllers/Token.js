@@ -7,7 +7,7 @@ const createToken = (payload) => {
 
 const verifieToken = (req, res, next) => {
   // const payload = req.cookies?.access_token;
-  const payload = req.token && req.token;
+  const payload = req.body.token && req.body.token;
   if (!payload) {
     console.log('pas de token')
     // return res.status(500).json( {SESSION_EXPIRE : "Veuillez vous connecté"});
@@ -27,7 +27,7 @@ const verifieToken = (req, res, next) => {
 
 const verifieTokenJWT = (req, res, next) => {
   // const payload = req.cookies?.access_token;
-  const payload = req.token && req.token;
+  const payload = req.body.token && req.body.token;
   console.log('payload ' + payload)
   if (!payload) {
     console.log('pas token')
