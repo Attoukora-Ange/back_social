@@ -410,12 +410,13 @@ module.exports.POST_CONNEXION = async (req, res) => {
       httpOnly: true, // backend only
       sameSite: "none", // set to none for cross-request
     });
-
+    
     // const UTILISATEU_CONNTECT = await UTILISATEURS.findById(ID_CONNTECTER);
     RECHERCHER_EMAIL.password = "";
 
     return res.status(200).json({
       NOUVEAU_CONNECTE: RECHERCHER_EMAIL,
+      token : token
     });
   } catch (error) {
     console.log(error.message);
