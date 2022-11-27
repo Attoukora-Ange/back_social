@@ -29,7 +29,7 @@ const verifieToken = (req, res, next) => {
 
 const verifieTokenJWT = (req, res, next) => {
   // const payload = req.cookies?.access_token;
-  const payload = req.headers['authorization'] && req.headers['authorization'].split(' ')[1];
+  const payload = req.headers['authorization'] && req.headers['authorization'].split('Bearer ')[0];
   console.log('payload ' + payload)
   if (!payload) {
     console.log('pas token')
