@@ -7,7 +7,8 @@ const createToken = (payload) => {
 
 const verifieToken = (req, res, next) => {
   // const payload = req.cookies?.access_token;
-  const payload = req.body.token && req.body.token;
+  
+  const payload = req.headers['Authorization'] && req.headers['Authorization'].split(' ')[1];
   if (!payload) {
     console.log('pas de token')
     // return res.status(500).json( {SESSION_EXPIRE : "Veuillez vous connecté"});
@@ -18,8 +19,9 @@ const verifieToken = (req, res, next) => {
     req.user = data;
     // console.log(req.user)
     return next();
-  } catch {
+  } catch(e) {
     console.log('token expiré')
+    console.log(e)
     return next();
     // return res.status(403).json({SESSION_EXPIRE : "La session à expirée"});
   }
@@ -27,7 +29,7 @@ const verifieToken = (req, res, next) => {
 
 const verifieTokenJWT = (req, res, next) => {
   // const payload = req.cookies?.access_token;
-  const payload = req.body.token && req.body.token;
+  const payload = req.headers['Authorization'] && req.headers['Authorization'].split(' ')[1];
   console.log('payload ' + payload)
   if (!payload) {
     console.log('pas token')

@@ -18,9 +18,9 @@ const option = {
   
   origin: process.env.CLIENT,
   methods: ["GET", "PUT", "PATCH" , "POST", "DELETE"],
-  allowedHeaders: ["Content-Type", "access_token"],
+  allowedHeaders: ["Content-Type", "access_token", 'Authorization'],
   credentials: true,
-  exposedHeaders: ["access_token"],
+  exposedHeaders: ["access_token", "Authorization"],
   }
 
 const socketIO = new Server(server, {cors:{option}});
