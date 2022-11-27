@@ -35,6 +35,7 @@ module.exports.POST_POSTER = async (req, res) => {
       NEW_POSTER_TEXTE.save();
     }
     if (req.file?.mimetype == "image/png" || req.file?.mimetype ==  "image/jpeg"  || req.file?.mimetype ==  "image/jpg") {
+      console.log('Image ' + req.file)
       if(post_texte !=  'undefined'){
        let postPhoto = await cloudinary.uploader.upload(req.file.path, {folder: 'socialPharma36'});
         postPhoto = postPhoto.secure_url;
@@ -56,6 +57,7 @@ module.exports.POST_POSTER = async (req, res) => {
       
     }
     if (req.file?.mimetype == "video/mp4") {
+      console.log('video ' + req.file)
       if(post_texte != 'undefined'){
       let postVideo = await cloudinary.uploader.upload(req.file.path, {resource_type:'video', folder: 'socialPharma36'});
         console.log(postVideo)
