@@ -8,7 +8,7 @@ const createToken = (payload) => {
 const verifieToken = (req, res, next) => {
   // const payload = req.cookies?.access_token;
   
-  const payload = req.headers['Authorization'] && req.headers['Authorization'].split(' ')[1];
+  const payload = req.headers['authorization'] && req.headers['authorization'].split('Bearer ')[0];
   if (!payload) {
     console.log('pas de token')
     // return res.status(500).json( {SESSION_EXPIRE : "Veuillez vous connecté"});
