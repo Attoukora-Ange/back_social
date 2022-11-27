@@ -28,6 +28,7 @@ const verifieToken = (req, res, next) => {
 const verifieTokenJWT = (req, res, next) => {
   // const payload = req.cookies?.access_token;
   const payload = req.token;
+  console.log('req.token ' + token)
   if (!payload) {
     console.log('pas token')
     // return res.status(200).json({data: req.user}) ;
