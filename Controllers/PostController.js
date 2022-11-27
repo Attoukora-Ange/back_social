@@ -20,8 +20,7 @@ module.exports.GET_LISTE_POSTER = async (req, res) => {
 };
 //post image et le texte du post
 module.exports.POST_POSTER = async (req, res) => {
-  console.log('body element ' + req.body)
-  console.log('file element ' + req.file)
+  
   const ID_CONNTECTER = req.user?.payload;
   if(!ID_CONNTECTER) 
   return console.log('ID_CONNECT :' + ID_CONNTECTER);
@@ -59,10 +58,8 @@ module.exports.POST_POSTER = async (req, res) => {
       
     }
     if (req.file?.mimetype == "video/mp4") {
-      console.log('video ' + req.file)
       if(post_texte != 'undefined'){
       let postVideo = await cloudinary.uploader.upload(req.file.path, {resource_type:'video', folder: 'socialPharma36'});
-        console.log(postVideo)
         postVideo = postVideo.secure_url;
          const NEW_POSTER_VIDEO = new POSTER_UTILISATEURS({
         posterId: ID_CONNTECTER,
